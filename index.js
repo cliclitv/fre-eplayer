@@ -1,27 +1,23 @@
-import { h, render } from 'fre'
-import { useRoutes, push, A } from 'use-routes'
+import { h, render, useEffect, useState } from 'fre'
+import { useRoutes } from 'use-routes'
+import './style.css'
 
-function Home () {
-  return (
-    <div>
-      <p>home</p>
-      <button onClick={() => push('/home/jack')}>Go jack</button>
-    </div>
-  )
-}
-
-function User ({ id }) {
-  return (
-    <div>
-      <p>{id}</p>
-      <A href='/'>Go home</A>
-    </div>
-  )
+function EPlayer ({ vid }) {
+  const [url, setUrl] = useState(0)
+  const av = vid.replace('av', '')
+  useEffect(() => {
+    fetch(`https://jx.clicli.us/jx?url=${av}@dogecloud`)
+      .then(res => res.json())
+      .then(data => {
+        console.log(data)
+        setUrl(data.url)
+      })
+  }, [])
+  return <e-player src={url} type='hls' />
 }
 
 const routes = {
-  '/': Home,
-  '/home/:id': User
+  '/video/:vid': EPlayer
 }
 
 const App = () => useRoutes(routes)

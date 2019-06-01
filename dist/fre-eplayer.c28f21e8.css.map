@@ -1,0 +1,1 @@
+{"version":3,"sources":["style.css"],"names":[],"mappings":"AAAA,EACE,QAAS,CACT,SACF,CAEA,MACE,WAAY,CACZ,UACF","file":"fre-eplayer.c28f21e8.css","sourceRoot":"..","sourcesContent":["* {\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n.wrap {\r\n  height: 100%;\r\n  width: 100%;\r\n}\r\n"]}
